@@ -1,6 +1,8 @@
 #!/bin/bash
-# Kegberry install script.
-# Source: https://github.com/Kegbot/kegberry
+# Kegbone install script.
+# Based on Kegberry install script
+# Original Source: https://github.com/Kegbot/kegberry
+
 
 set -e
 set -x
@@ -8,7 +10,7 @@ set -x
 ### Configuration section
 
 REQUIRED_PACKAGES="nginx-light libjpeg-dev supervisor python-setuptools python-dev libsqlite3-dev libmysqlclient-dev mysql-server memcached redis-server"
-KEGBERRY_DIR="/etc/kegberry"
+KEGBERRY_DIR="/etc/kegbone"
 
 KEGBOT_PIP_NAME="kegbot"
 PYCORE_PIP_NAME="kegbot-pycore"
@@ -32,7 +34,7 @@ do_apt_get() {
 }
 
 install_kegberry() {
-  sudo mkdir -p ${KEGBERRY_DIR}
+  sudo mkdir -p ${KEGBONE_DIR}
 
   info "Updating distro ..."
   do_apt_get update
@@ -58,10 +60,10 @@ install_kegberry() {
   setup-kegbot.py --db_type=mysql --interactive=false
 
   info "Generating API key ..."
-  api_key=$(kegbot create_api_key "Kegberry")
-  mkdir -p /home/pi/.kegbot/
-  echo "--api_url=http://localhost/api/" > /home/pi/.kegbot/pycore-flags.txt
-  echo "--api_key=${api_key}" >> /home/pi/.kegbot/pycore-flags.txt
+  api_key=$(kegbot create_api_key "Kegbone")
+  mkdir -p /home/kegbot/.kegbot/
+  echo "--api_url=http://localhost/api/" > /home/kegbot/.kegbot/pycore-flags.txt
+  echo "--api_key=${api_key}" >> /home/kegbot/.kegbot/pycore-flags.txt
 
   info "Installing configs ..."
   sudo bash -c "curl -o /etc/nginx/sites-available/default ${NGINX_CONF_URL}"
@@ -75,4 +77,4 @@ install_kegberry() {
 }
 
 ### Main program
-install_kegberry
+install_kegbone
