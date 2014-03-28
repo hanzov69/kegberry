@@ -9,8 +9,8 @@ set -x
 
 ### Configuration section
 
-REQUIRED_PACKAGES="nginx-light libjpeg-dev supervisor python-setuptools python-dev libsqlite3-dev libmysqlclient-dev mysql-server memcached redis-server"
-#KILL_PACKAGES="gnome-* xserver-* xscreensaver* apache* avahi-daemon xchat* tight* lxde-common lxpanel lxsession lxterminal"
+REQUIRED_PACKAGES="nginx-light libjpeg-dev libjpeg62 supervisor python-setuptools python-dev libsqlite3-dev libmysqlclient-dev mysql-server memcached redis-server"
+KILL_PACKAGES="apache2"
 KEGBONE_DIR="/etc/kegbone"
 
 KEGBOT_PIP_NAME="kegbot"
