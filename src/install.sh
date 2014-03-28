@@ -38,7 +38,7 @@ remove_bbb_cruft() {
   sudo systemctl disable bonescript.service
   sudo systemctl disable bonescript.socket
   sudo systemctl disable bonescript-autorun.service
-  sudo systemctl disable avahi-daemon.service
+  #sudo systemctl disable avahi-daemon.service
 }
 
 remove_other_cruft() {
