@@ -33,8 +33,20 @@ do_apt_get() {
   sudo bash -c "DEBIAN_FRONTEND=noninteractive apt-get -yq $*"
 }
 
+remove_bbb_cruft() {
+  sudo systemctl disable cloud9.service
+  sudo systemctl disable bonescript.service
+  sudo systemctl disable bonescript.socket
+  sudo systemctl disable bonescript-autorun.service
+  sudo systemctl disable avahi-daemon.service
+  sudo 
+}
+
 install_kegbone() {
   sudo mkdir -p ${KEGBONE_DIR}
+  
+  info "Removing unnecessary BeagleBone software/services ..."
+  remove_bbb_cruft
 
   info "Updating distro ..."
   do_apt_get update
