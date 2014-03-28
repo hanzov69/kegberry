@@ -63,16 +63,7 @@ install_kegbone() {
   do_apt_get install ${REQUIRED_PACKAGES}
 
   info "Upgrading pip ..."
-  sudo pip install -U pip
-  
-  info "Installing amqp ..."
-  sudo pip2 install amqp
-  
-  info "Installing anyjson ..."
-  sudo pip2 install anyjson
-  
-  info "Installing six ..."
-  sudo pip2 install six
+  sudo easy_install-2.7 pip
 
   info "Installing Kegbot Server ..."
   sudo pip install -U ${KEGBOT_PIP_NAME}
