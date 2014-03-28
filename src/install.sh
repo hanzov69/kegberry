@@ -49,7 +49,10 @@ remove_other_cruft() {
   sudo apt-get -y purge --auto-remove avahi-daemon
   sudo apt-get -y purge --auto-remove xchat*
   sudo apt-get -y purge --auto-remove tight*
-  sudo apt-get -y purge --auto-remove lx*
+  sudo apt-get -y purge --auto-remove lxde-common
+  sudo apt-get -y purge --auto-remove lxpanel
+  sudo apt-get -y purge --auto-remove lxsession
+  sudo apt-get -y purge --auto-remove lxterminal
 }
 
 install_kegbone() {
