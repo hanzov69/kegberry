@@ -34,7 +34,7 @@ Clean install of latest debian image available [here](http://beagleboard.org/lat
   configuration with Kegbot's.
 * **Debian**: These instructions assume you've installed a fresh copy of
   [Debian](http://beagleboard.org/latest-images) Tested against 2013-09-04
-  ([installation instructions](http://elinux.org/RPi_Easy_SD_Card_Setup)).
+  ([installation instructions](http://learn.adafruit.com/beaglebone-black-installing-operating-systems/flashing-the-beaglebone-black)).
 * **kegbot user**: Configuration files assume we'll be running Kegbot as
   the `kegbot` user. You will need to create this account and it to /etc/sudoers before proceeding.
 
