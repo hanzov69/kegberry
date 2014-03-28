@@ -79,6 +79,9 @@ install_kegbone() {
   
   info "Installing anyjson ..."
   sudo pip2 install anyjson
+  
+  info "Installing six ..."
+  sudo pip2 install six
 
   info "Installing Kegbot Server ..."
   sudo pip install -U ${KEGBOT_PIP_NAME}
