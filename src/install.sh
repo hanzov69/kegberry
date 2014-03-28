@@ -41,8 +41,22 @@ remove_bbb_cruft() {
   sudo systemctl disable avahi-daemon.service
 }
 
+remove_other_cruft() {
+  sudo apt-get -y purge --auto-remove gnome-*
+  sudo apt-get -y purge --auto-remove xserver-*
+  sudo apt-get -y purge --auto-remove xscreensaver*
+  sudo apt-get -y purge --auto-remove apache*
+  sudo apt-get -y purge --auto-remove avahi-daemon
+  sudo apt-get -y purge --auto-remove xchat*
+  sudo apt-get -y purge --auto-remove tight*
+  
+}
+
 install_kegbone() {
   sudo mkdir -p ${KEGBONE_DIR}
+  
+  info "Removing unnecessary software to free up space ..."
+  remove_other_cruft
   
   info "Removing unnecessary BeagleBone software/services ..."
   remove_bbb_cruft
