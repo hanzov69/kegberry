@@ -33,7 +33,7 @@ do_apt_get() {
   sudo bash -c "DEBIAN_FRONTEND=noninteractive apt-get -yq $*"
 }
 
-install_kegberry() {
+install_kegbone() {
   sudo mkdir -p ${KEGBONE_DIR}
 
   info "Updating distro ..."
