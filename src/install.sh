@@ -49,7 +49,7 @@ remove_other_cruft() {
   sudo apt-get -y purge --auto-remove avahi-daemon
   sudo apt-get -y purge --auto-remove xchat*
   sudo apt-get -y purge --auto-remove tight*
-  
+  sudo apt-get -y purge --auto-remove lx*
 }
 
 install_kegbone() {
