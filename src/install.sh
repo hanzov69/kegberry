@@ -10,6 +10,7 @@ set -x
 ### Configuration section
 
 REQUIRED_PACKAGES="nginx-light libjpeg-dev supervisor python-setuptools python-dev libsqlite3-dev libmysqlclient-dev mysql-server memcached redis-server"
+KILL_PACKAGES="gnome-* xserver-* xscreensaver* apache* avahi-daemon xchat* tight* lxde-common lxpanel lxsession lxterminal"
 KEGBONE_DIR="/etc/kegbone"
 
 KEGBOT_PIP_NAME="kegbot"
@@ -42,24 +43,14 @@ remove_bbb_cruft() {
 }
 
 remove_other_cruft() {
-  sudo apt-get -y purge --auto-remove gnome-*
-  sudo apt-get -y purge --auto-remove xserver-*
-  sudo apt-get -y purge --auto-remove xscreensaver*
-  sudo apt-get -y purge --auto-remove apache*
-  sudo apt-get -y purge --auto-remove avahi-daemon
-  sudo apt-get -y purge --auto-remove xchat*
-  sudo apt-get -y purge --auto-remove tight*
-  sudo apt-get -y purge --auto-remove lxde-common
-  sudo apt-get -y purge --auto-remove lxpanel
-  sudo apt-get -y purge --auto-remove lxsession
-  sudo apt-get -y purge --auto-remove lxterminal
+  sudo apt-get -y purge --auto-remove $*
 }
 
 install_kegbone() {
   sudo mkdir -p ${KEGBONE_DIR}
   
   info "Removing unnecessary software to free up space ..."
-  remove_other_cruft
+  remove_other_cruft ${KILL_PACKAGES}
   
   info "Removing unnecessary BeagleBone software/services ..."
   remove_bbb_cruft
