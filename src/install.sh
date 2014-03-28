@@ -70,6 +70,9 @@ install_kegbone() {
 
   info "Upgrading pip ..."
   sudo pip install -U pip
+  
+  info "Installing amqp ..."
+  sudo pip2 install amqp
 
   info "Installing Kegbot Server ..."
   sudo pip install -U ${KEGBOT_PIP_NAME}
