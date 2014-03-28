@@ -73,6 +73,9 @@ install_kegbone() {
   
   info "Installing amqp ..."
   sudo pip2 install amqp
+  
+  info "Installing anyjson ..."
+  sudo pip2 install anyjson
 
   info "Installing Kegbot Server ..."
   sudo pip install -U ${KEGBOT_PIP_NAME}
