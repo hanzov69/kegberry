@@ -54,8 +54,8 @@ install_kegbone() {
   info "Installing required packages ..."
   do_apt_get install ${REQUIRED_PACKAGES}
 
-  info "Installing pip ..."
-  sudo easy_install-2.7 pip
+  info "Upgrading pip ..."
+  sudo pip install -U pip
 
   info "Installing Kegbot Server ..."
   sudo pip install -U ${KEGBOT_PIP_NAME}
